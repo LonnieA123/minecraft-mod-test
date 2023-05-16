@@ -1,6 +1,7 @@
 package net.lonald.testmod;
 
 import com.mojang.logging.LogUtils;
+import net.lonald.testmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +23,9 @@ public class TestMod
     public TestMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -33,7 +37,6 @@ public class TestMod
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-
     }
 
 
