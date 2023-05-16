@@ -1,6 +1,7 @@
 package net.lonald.testmod;
 
 import com.mojang.logging.LogUtils;
+import net.lonald.testmod.item.ModCreativeModeTabs;
 import net.lonald.testmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +38,17 @@ public class TestMod
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
+
+        if(event.getTab() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.RUBY);
+            event.accept(ModItems.DOLLAR);
+        }
+
+        if(event.getTab() == ModCreativeModeTabs.TEST_TAB){
+            event.accept(ModItems.RUBY);
+            event.accept(ModItems.DOLLAR);
+        }
+
     }
 
 
@@ -47,7 +59,6 @@ public class TestMod
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
 
         }
     }
