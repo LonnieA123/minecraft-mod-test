@@ -1,6 +1,7 @@
 package net.lonald.testmod;
 
 import com.mojang.logging.LogUtils;
+import net.lonald.testmod.block.ModBlocks;
 import net.lonald.testmod.item.ModCreativeModeTabs;
 import net.lonald.testmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -17,23 +18,21 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TestMod.MOD_ID)
-public class TestMod
-{
+public class TestMod {
     public static final String MOD_ID = "testmod";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public TestMod()
-    {
+    public TestMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
 
@@ -47,6 +46,8 @@ public class TestMod
         if(event.getTab() == ModCreativeModeTabs.TEST_TAB){
             event.accept(ModItems.RUBY);
             event.accept(ModItems.DOLLAR);
+            event.accept(ModBlocks.RUBY_BLOCK);
+            event.accept(ModBlocks.DOLLAR_BLOCK);
         }
 
     }
@@ -55,8 +56,7 @@ public class TestMod
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
