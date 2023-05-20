@@ -18,6 +18,9 @@ public class ModItems {
     public static final RegistryObject<Item> DOLLAR =
             ITEMS.register("dollar",() -> new Item(new Item.Properties()));
 
+   // public static final RegistryObject<Item> FIVE_DOLLAR =
+//            ITEMS.register("dollar",() -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
