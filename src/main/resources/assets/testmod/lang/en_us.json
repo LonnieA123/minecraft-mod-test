@@ -2,6 +2,7 @@
   "item.testmod.ruby": "Ruby",
   "item.testmod.dollar": "Dollar",
   "block.testmod.ruby_block": "Ruby Block",
+  "block.testmod.ruby_ore": "Ruby Ore",
   "block.testmod.dollar_block": "Dollar Block",
   "creativemodtab.test_tab": "Test Tab"
 }

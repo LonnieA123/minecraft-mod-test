@@ -47,6 +47,7 @@ public class TestMod {
             event.accept(ModItems.RUBY);
             event.accept(ModItems.DOLLAR);
             event.accept(ModBlocks.RUBY_BLOCK);
+            event.accept(ModBlocks.RUBY_ORE);
             event.accept(ModBlocks.DOLLAR_BLOCK);
         }
 
